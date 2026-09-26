@@ -112,4 +112,4 @@ Screen updates are **flicker-free**: every widget remembers what it drew and onl
 
 This is an independent hobby project. "Victron Energy", "VE.Direct", "MPPT" and "SmartShunt" are trademarks of their owners. Wire and use it at your own risk.
 
-Made by Eric Bruggema.
+Made by Eric Bruggema. Free to use under the [MIT License](LICENSE).
