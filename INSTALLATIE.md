@@ -16,7 +16,7 @@ Je kunt alles eerst **zonder Victron-apparatuur** proberen: het dashboard start 
 1. Arduino IDE → Boards Manager → **esp32 (Espressif)**, versie 3.x.
 2. Library Manager → installeer **TFT_eSPI** en **XPT2046_Touchscreen**.
 3. Configureer TFT_eSPI (éénmalig, zie hoofdstuk 3).
-4. Open `VictronDashboardCYD.ino`. Kies als board *ESP32 Dev Module*. Is de sketch te groot: Tools → Partition Scheme → **Huge APP**.
+4. Open `VictronDashboardCYD/VictronDashboardCYD.ino` (de sketch staat in de submap met dezelfde naam, dat eist de Arduino IDE). Kies als board *ESP32 Dev Module*. Is de sketch te groot: Tools → Partition Scheme → **Huge APP**.
 
 ## 3. TFT_eSPI instellen (verplicht)
 
@@ -24,7 +24,7 @@ TFT_eSPI leest zijn instellingen uit de library-map, niet uit de sketch.
 
 1. Ga naar `Documents\Arduino\libraries\TFT_eSPI`.
 2. Hernoem `User_Setup.h` naar `User_Setup.h.orig` (bewaren als reserve).
-3. Kopieer `User_Setup_CYD.h` uit deze map naar die map en hernoem het naar `User_Setup.h`.
+3. Kopieer `User_Setup_CYD.h` uit de hoofdmap van de repo naar die map en hernoem het naar `User_Setup.h`.
 4. Controleer in `User_Setup_Select.h` dat de regel `#include <User_Setup.h>` **niet** uitgecommentarieerd is.
 5. Herstart de Arduino IDE.
 
@@ -53,11 +53,11 @@ VE.Direct is 3,3V-serieel. **TX en RX kruisen**: TX van de Victron gaat naar RX 
 - De **+V**-pin van de VE.Direct-stekker blijft **los** (alleen voor Victron-accessoires).
 - GPIO 27 is alleen nodig om instellingen uit de apparaten te lezen (APPARATEN-pagina). Zonder die draad werken de live-waarden gewoon.
 - Werkt maar één apparaat? Dan toont het dashboard alleen wat er is; de rest wordt grijs of "--".
-- Andere pinnen nodig? Pas `VEDIRECT_MPPT_RX`, `VEDIRECT_SHUNT_RX` en `VEDIRECT_SHARED_TX` aan in `config.h`. De bedrading-tekst op het opstartscherm past vanzelf mee.
+- Andere pinnen nodig? Pas `VEDIRECT_MPPT_RX`, `VEDIRECT_SHUNT_RX` en `VEDIRECT_SHARED_TX` aan in `VictronDashboardCYD/config.h`. De bedrading-tekst op het opstartscherm past vanzelf mee.
 
 ## 6. Instellen naar jouw installatie
 
-In `config.h`:
+In `VictronDashboardCYD/config.h`:
 
 - **Accutype**: `BATTERY_LIFEPO4` of `BATTERY_LEAD` (ook later te wisselen in Instellingen)
 - **Capaciteit**: `BATTERY_CAPACITY_AH`
@@ -83,9 +83,9 @@ In `config.h`:
 | Wit of leeg scherm | Verkeerde driver. Controleer `User_Setup.h`: `ST7789_DRIVER`, en dat `User_Setup_Select.h` het bestand includet. Herstart de IDE na een wijziging. |
 | Rood en blauw verwisseld | Zet `TFT_RGB_ORDER` op `TFT_BGR` (staat zo in `User_Setup_CYD.h`). |
 | Scherm blijft zwart, touch reageert wel (zie log) | Backlight staat uit of te laag opgeslagen. Sinds deze versie is er een ondergrens van 15%. Zie `[BL]`-regels in de Serial Monitor. |
-| Touch reageert niet | Kijk in de Serial Monitor of `[CAL]` meldt "geen touch-signaal". Controleer de touch-pinnen in `config.h` (CS33, IRQ36, MOSI32, MISO39, CLK25 op de geteste print). |
+| Touch reageert niet | Kijk in de Serial Monitor of `[CAL]` meldt "geen touch-signaal". Controleer de touch-pinnen in `VictronDashboardCYD/config.h` (CS33, IRQ36, MOSI32, MISO39, CLK25 op de geteste print). |
 | Touch klopt niet met wat je aantikt | Opnieuw kalibreren: Instellingen → Aanraakscherm kalibreren. |
-| Altijd DEMO ondanks aangesloten Victron | Controleer TX/RX gekruist, gemeenschappelijke GND en de pinnen in `config.h`. Als de kabel later wordt aangesloten schakelt het dashboard zelf om naar LIVE. |
+| Altijd DEMO ondanks aangesloten Victron | Controleer TX/RX gekruist, gemeenschappelijke GND en de pinnen in `VictronDashboardCYD/config.h`. Als de kabel later wordt aangesloten schakelt het dashboard zelf om naar LIVE. |
 | APPARATEN-pagina toont "..." | De HEX-opvraging via GPIO 27 ontvangt niets; live-waarden zijn hiervan onafhankelijk. |
 | Compileerfout rond `drawArc` of `setViewport` | Versieverschil in TFT_eSPI. Update de library of pas de aanroep aan. |
 | Geen geluid bij alarm | `ALARM_ENABLED 1`? Speaker-pin (GPIO 26) en luidspreker aanwezig op je bordje? |

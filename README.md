@@ -57,7 +57,7 @@ The boot screen shows these connections as a scrolling guide while it searches f
 1. Install the **Arduino IDE** and the **ESP32 board package, core 3.x**.
 2. In the Library Manager install **TFT_eSPI** (Bodmer) and **XPT2046_Touchscreen** (Paul Stoffregen).
 3. Configure TFT_eSPI for this board (one time, see [Display driver](#display-driver)).
-4. Open `VictronDashboardCYD.ino`, select the board (*ESP32 Dev Module* works), choose partition scheme **Huge APP** if the sketch is too big, and upload.
+4. Open `VictronDashboardCYD/VictronDashboardCYD.ino` (the sketch lives in the subfolder of the same name, which the Arduino IDE requires), select the board (*ESP32 Dev Module* works), choose partition scheme **Huge APP** if the sketch is too big, and upload.
 5. On first start, tap the two crosses to calibrate the touchscreen. This is stored and never asked again (you can redo it under Settings).
 
 ### Display driver
@@ -82,11 +82,11 @@ If your screen stays white, shows the wrong colours or is mirrored, the driver o
 
 ## Configuration
 
-Everything is in `config.h`: VE.Direct pins, battery type (LiFePO4 or lead-acid) and capacity, load colour thresholds, screensaver/screen-off timing, alarm sound, demo scenario and device labels. Comments in the file explain each option.
+Everything is in `VictronDashboardCYD/config.h`: VE.Direct pins, battery type (LiFePO4 or lead-acid) and capacity, load colour thresholds, screensaver/screen-off timing, alarm sound, demo scenario and device labels. Comments in the file explain each option.
 
 ## Project layout
 
-Single Arduino sketch; the `.ino` includes all headers.
+Single Arduino sketch in the `VictronDashboardCYD/` folder; the `.ino` includes all headers.
 
 | File | Purpose |
 |---|---|
@@ -97,7 +97,7 @@ Single Arduino sketch; the `.ino` includes all headers.
 | `pages_*.h` | The pages |
 | `touch.h` | XPT2046 touch, gestures, calibration |
 | `ve_direct.h` | VE.Direct parser (text mode) and read-only HEX requests |
-| `User_Setup_CYD.h` | TFT_eSPI configuration to install into the library |
+| `User_Setup_CYD.h` (repo root) | TFT_eSPI configuration to install into the library |
 
 Screen updates are **flicker-free**: every widget remembers what it drew and only repaints what actually changed.
 
