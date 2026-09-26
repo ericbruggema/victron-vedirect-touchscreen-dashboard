@@ -95,3 +95,7 @@ In `VictronDashboardCYD/config.h`:
 - De firmware **schrijft nooit** naar de MPPT of SmartShunt; er worden alleen waarden gelezen.
 - Werk aan bedrading altijd spanningsloos en respecteer de specificaties van je installatie.
 - Onafhankelijk hobbyproject, niet gelieerd aan Victron Energy. Gebruik op eigen risico.
+
+---
+
+Gemaakt door **Eric Bruggema** ([LinkedIn](https://www.linkedin.com/in/eric-bruggema-28a81a186/) · [Facebook](https://www.facebook.com/eric.bruggema)). Vrij te gebruiken onder de [MIT-licentie](LICENSE).
