@@ -9,6 +9,26 @@ A touchscreen dashboard for a Victron solar installation. It reads a **MPPT sola
 
 > Documentatie in het Nederlands: zie [INSTALLATIE.md](INSTALLATIE.md) (bouwen, bedrading, problemen oplossen).
 
+## Screenshots
+
+> These are **illustrative renders** of the demo mode, drawn by [`tools/render_demo_screens.py`](tools/render_demo_screens.py) from the same layout code as the firmware. They are not photos: fonts and anti-aliasing on the real 2.8" screen look slightly different.
+
+| Dashboard | Sun details | Battery details |
+|---|---|---|
+| ![Dashboard](docs/screenshots/01-dashboard.png) | ![Sun details](docs/screenshots/02-zon.png) | ![Battery details](docs/screenshots/03-accu.png) |
+
+| Energy | Day & history | Devices |
+|---|---|---|
+| ![Energy](docs/screenshots/04-energie.png) | ![Day and history](docs/screenshots/05-historie.png) | ![Devices](docs/screenshots/06-apparaten.png) |
+
+| System | Settings | Boot + wiring guide |
+|---|---|---|
+| ![System](docs/screenshots/07-systeem.png) | ![Settings](docs/screenshots/08-instellingen.png) | ![Boot screen](docs/screenshots/09-opstart.png) |
+
+| Energy-flow screensaver |
+|---|
+| ![Screensaver](docs/screenshots/10-screensaver.png) |
+
 ## What you see
 
 | Page | Content |
@@ -97,6 +117,7 @@ Single Arduino sketch in the `VictronDashboardCYD/` folder; the `.ino` includes 
 | `pages_*.h` | The pages |
 | `touch.h` | XPT2046 touch, gestures, calibration |
 | `ve_direct.h` | VE.Direct parser (text mode) and read-only HEX requests |
+| `tools/render_demo_screens.py` | Generates the illustrative screenshots in `docs/screenshots/` |
 | `User_Setup_CYD.h` (repo root) | TFT_eSPI configuration to install into the library |
 
 Screen updates are **flicker-free**: every widget remembers what it drew and only repaints what actually changed.

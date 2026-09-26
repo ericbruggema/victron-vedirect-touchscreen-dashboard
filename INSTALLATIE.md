@@ -1,6 +1,6 @@
 # Victron VE.Direct touchscreen dashboard — installatiegids
 
-Stap voor stap van een kaal CYD-bordje naar een werkend dashboard. Overzicht en uitleg van de pagina's: zie [README.md](README.md).
+Stap voor stap van een kaal CYD-bordje naar een werkend dashboard. Overzicht, uitleg van de pagina's en voorbeeldschermen (illustratieve renders van de demo-modus): zie [README.md](README.md).
 
 ## 1. Wat heb je nodig
 

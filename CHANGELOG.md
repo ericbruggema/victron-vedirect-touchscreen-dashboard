@@ -6,6 +6,7 @@ Nieuwste bovenaan.
 
 Poort van het ESP32-D/1.8"-project naar de ESP32-2432S028R (320x240, touch).
 
+- (+) Docs: README (Engels), INSTALLATIE (Nederlands), illustratieve demo-schermen in `docs/screenshots/` (gegenereerd met `tools/render_demo_screens.py`), MIT-licentie.
 - (+) Touchscreen-bediening (swipe, tik, kalibratie); PIR en drukknop vervallen.
 - (+) Eén vast "gedetailleerd" ontwerp met 7 pagina's plus Instellingen; thema's vervallen.
 - (+) Rollend 24-uursvenster voor dagstatistiek (geen RTC nodig).
